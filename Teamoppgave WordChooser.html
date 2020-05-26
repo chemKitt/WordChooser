@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>EVENTYR TIIIIIID!!!!!!!!!!!!!</title>
+    <style>
+        button {
+            background-color: rgb(213, 171, 183);
+            border: 3px solid rgb(86, 80, 80);
+            border-radius: 15px;
+            font-family: fantasy;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Dette er en historie om en/et/noen/etc. 1* 2* som 3* med en 4* 5*
+        1*
+            stor
+            liten
+        2*
+            katt
+            hund
+            vampyr
+        3*
+        4*
+        5*
+    -->
+    <div id="story"></div>
+    <div id="options"></div>
+    <br>
+    <script>
+        wordListList = [
+            adjList1 = ["liten ","stor ","dårlig ","emosjonell ","teit ","allergisk ","dyktig ","lilla ","religiøs ","influencer-","hipster-","håpløs ","morderisk ","politisk ukorrekt ","koselig ","søt liten ","normal ","firkantet ","snill ","naken ","gammel ","ung ","Norsk ","Svensk ","kuuuuul "],
+            objList1 = ["katt ","hund ","rotte ","pølse ","mann ","gutt ","dame ","jente ","PC ","gamer ","programmerer ","lærer ","kortstokk ","pelsdott "],
+            verbList1 = ["danser ","stjeler ","gamer ","sloss ","drikker seg full ","slapper av","snakker ","studerer ","dør ","våkner "],
+            adjList2 = ["rosa ","gigantisk ","bitteliten ","gjerrig ","gammel ","fin ","kongelig ","Britisk ","varm ","rund ","magisk "],
+            objList2 = ["Nintendo Switch.","mann.","gutt.","dame.","jente.","Nordmann.","hest.","smøreost.","musiker.","tegner.","lefse.","bok.","lærer.","rotte."]
+        ];
+        
+        var optionCount = 0;
+        wordListList.forEach(list => {
+            optionCount++;
+            list.forEach(word => {
+                document.getElementById("options").innerHTML +=
+                    "<button onclick='insertWord(this," + optionCount + ")'>" + word + "</button>";
+            });
+            document.getElementById("options").innerHTML += "<br></br>";
+        });
+
+        //model
+        var option1 = " ___ ";
+        var option2 = " ___ ";
+        var option3 = " ___ ";
+        var option4 = " ___ ";
+        var option5 = " ___ ";
+
+        //view
+        view();
+        function view() {
+            document.getElementById("story").innerHTML =
+                "Dette er en historie om en " +
+                option1 + option2 +
+                "som " +
+                option3 +
+                " med en " + option4 + option5 + "<br></br>";
+        }
+
+        //controller
+        function insertWord(word, wordNumber) {
+            if (wordNumber == 1) {
+                option1 = word.innerHTML;
+            }
+            if (wordNumber == 2) {
+                option2 = word.innerHTML;
+            }
+            if (wordNumber == 3) {
+                option3 = word.innerHTML;
+            }
+            if (wordNumber == 4) {
+                option4 = word.innerHTML;
+            }
+            if (wordNumber == 5) {
+                option5 = word.innerHTML;
+            }
+            if (wordNumber == 99) {
+                option1 = option2 = option3 = option4 = option5 = " __ ";
+            }
+            view();
+        }
+
+        
+    </script>
+</body>
+</html>
